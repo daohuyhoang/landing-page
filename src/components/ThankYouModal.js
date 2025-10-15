@@ -11,10 +11,6 @@ const ThankYouModal = ({ show, onHide, visitLink }) => {
     }, 300);
   };
 
-  const handleBackdropClick = () => {
-    handleClose();
-  };
-
   return (
     <Modal
       show={show}
