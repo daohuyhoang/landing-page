@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import ProductGrid from './components/ProductGrid';
-import ThankYouModal from './components/ThankYouModal'; // Import modal mới
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -31,16 +30,9 @@ function App() {
     setShowModal(false);
   };
 
-  const visitLink = "https://s.shopee.vn/9zp8ujToGJ"; // Thay bằng link của bạn
 
   return (
     <div className="App">
-      {/* Thank You Modal */}
-      <ThankYouModal 
-        show={showModal}
-        onHide={handleModalClose}
-        visitLink={visitLink}
-      />
 
       {/* Header với gradient hồng + animation */}
       <header className={`header ${isVisible ? 'header-animate' : ''}`}>
