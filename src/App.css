@@ -36,3 +36,419 @@
     transform: rotate(360deg);
   }
 }
+/* Custom styles cho responsive và hiệu ứng */
+.product-card {
+  border: none;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.product-image-wrapper {
+  border-radius: 10px 10px 0 0;
+}
+
+.product-title {
+  white-space: normal;
+  overflow: visible;
+  line-height: 1.3;
+  max-width: 100%;
+}
+
+.price-text {
+  font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .product-card {
+    margin-bottom: 1rem;
+  }
+  
+  .product-image-wrapper {
+    height: 180px;
+  }
+  
+  .product-title {
+    font-size: 0.9rem;
+    white-space: normal;
+  overflow: visible;
+  line-height: 1.3;
+  max-width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .product-image-wrapper {
+    height: 160px;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Hover effects cho mobile */
+@media (hover: none) {
+  .product-card {
+    transition: none;
+  }
+  
+  .product-card:active {
+    transform: scale(0.98);
+  }
+}
+
+/* 🎨 COLOR PALETTE - Hồng nhạt theme */
+:root {
+  --pink-primary: #ff69b4;
+  --pink-light: #ffb6c1;
+  --pink-extra-light: #ffe4e1;
+  --pink-dark: #ff1493;
+  --pink-shadow: rgba(255, 105, 180, 0.2);
+  --white: #ffffff;
+  --gray-light: #f8f9fa;
+  --text-dark: #2c3e50;
+}
+
+/* Header Animation */
+.header {
+  min-height: 30vh;
+  background: linear-gradient(135deg, 
+    var(--pink-primary) 0%, 
+    var(--pink-light) 50%, 
+    var(--pink-extra-light) 100%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  animation: sparkle 3s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}
+
+.header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.1) 100%);
+}
+
+.header-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--white);
+}
+
+.header-text h1 {
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  background: linear-gradient(45deg, #fff, var(--pink-extra-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.animate-fade-in {
+  animation: fadeInUp 1s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 1s ease-out 0.3s both;
+}
+
+.animate-bounce {
+  animation: bounce 2s infinite;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+/* Floating elements */
+.floating-card {
+  position: absolute;
+  font-size: 3rem;
+  animation: float 6s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+.floating-card:nth-child(1) { top: 20%; right: 10%; animation-delay: 0s; }
+.floating-card:nth-child(2) { top: 50%; left: 10%; animation-delay: 2s; }
+.floating-card:nth-child(3) { top: 30%; right: 20%; animation-delay: 4s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(10deg); }
+}
+
+/* Pink Buttons */
+.btn-pink {
+  background: linear-gradient(45deg, var(--pink-primary), var(--pink-dark));
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px var(--pink-shadow);
+}
+
+.btn-pink:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--pink-shadow);
+  color: white;
+}
+
+.btn-outline-pink {
+  border: 2px solid var(--pink-primary);
+  color: var(--pink-primary);
+  background: transparent;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-pink:hover {
+  background: var(--pink-primary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Product Cards - Pink Theme */
+.pink-theme {
+  background: var(--white);
+  border-radius: 20px !important;
+  overflow: hidden;
+}
+
+.pink-theme:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 15px 35px var(--pink-shadow) !important;
+}
+
+.product-image-wrapper {
+  position: relative;
+  border-radius: 20px 20px 0 0 !important;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, 
+    transparent 0%, 
+    rgba(255, 105, 180, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.pink-theme:hover .image-overlay {
+  opacity: 1;
+}
+
+.hot-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--pink-primary);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.pink-price {
+  color: var(--pink-primary) !important;
+  background: linear-gradient(45deg, var(--pink-primary), var(--pink-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Sections */
+.pink-section {
+  background: linear-gradient(to bottom, 
+    var(--pink-extra-light) 0%, 
+    var(--white) 50%);
+}
+
+.pink-title {
+  background: linear-gradient(45deg, var(--pink-primary), var(--pink-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: bold;
+}
+
+.text-pink {
+  color: var(--pink-primary) !important;
+}
+
+/* Footer */
+.footer-pink {
+  background: linear-gradient(135deg, 
+    var(--pink-light) 0%, 
+    var(--pink-primary) 100%);
+  color: var(--white);
+}
+
+/* Product Card Horizontal Layout */
+.product-card-horizontal {
+  border-radius: 15px !important;
+  overflow: hidden;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+.product-card-horizontal:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px var(--pink-shadow) !important;
+}
+
+/* Ảnh bên trái */
+.product-image-left {
+  width: 60%; /* Tỷ lệ ảnh */
+  min-width: 150px;
+  position: relative;
+}
+
+.product-img-horizontal {
+  transition: transform 0.4s ease;
+}
+
+.product-card-horizontal:hover .product-img-horizontal {
+  transform: scale(1.05);
+}
+
+/* Nội dung bên phải */
+.card-content-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+}
+
+/* Title responsive */
+.product-title-horizontal {
+  font-size: 1rem;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 7.2em;
+}
+
+/* Price styling */
+.price-text-horizontal {
+  margin-bottom: 1rem !important;
+}
+
+/* Buy button */
+.buy-btn {
+  border-radius: 25px;
+  font-size: 0.9rem;
+  padding: 10px 20px;
+  background: linear-gradient(45deg, var(--pink-primary), var(--pink-dark)) !important;
+  border: none !important;
+}
+
+.buy-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px var(--pink-shadow);
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    min-height: 30vh;
+    padding: 2rem 0;
+  }
+  
+  .header-content {
+    padding: 0 1rem;
+  }
+  
+  .floating-card {
+    display: none;
+  }
+  
+  .btn-lg {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .header h1 {
+    font-size: 2rem;
+  }
+  
+  .product-card {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Scroll to top smooth */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Loading animation cho images */
+.product-image-wrapper img {
+  transition: transform 0.4s ease;
+}
+
+.product-image-wrapper:hover img {
+  transform: scale(1.05);
+}
