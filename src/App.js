@@ -1,41 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Container } from 'react-bootstrap';
 import ProductGrid from './components/ProductGrid';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
-  const [isVisible, setIsVisible] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-
-  useEffect(() => {
-    // Trigger animation sau khi mount
-    const timer = setTimeout(() => setIsVisible(true), 100);
-    return () => clearTimeout(timer);
-  }, []);
-
-  // Hiển thị modal sau khi trang load xong
-  useEffect(() => {
-    const showWelcomeModal = () => {
-      const timer = setTimeout(() => {
-        setShowModal(true);
-      }, 2000); // Hiển thị sau 2 giây
-      return () => clearTimeout(timer);
-    };
-
-    showWelcomeModal();
-  }, []);
-
-  const handleModalClose = () => {
-    setShowModal(false);
-  };
-
 
   return (
     <div className="App">
 
       {/* Header với gradient hồng + animation */}
-      <header className={`header ${isVisible ? 'header-animate' : ''}`}>
+      <header className={`header header-animate`}>
         {/* ... header content giữ nguyên ... */}
         <div className="header-overlay"></div>
         <Container className="header-content">
